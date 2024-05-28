@@ -58,14 +58,14 @@
 <div class="mx-auto grid w-[350px] gap-6">
   <div class="grid gap-2 text-center">
     <h1 class="text-3xl font-bold">Register</h1>
-    <p class="text-muted-foreground text-balance">Fill in the form below to create an account</p>
+    <p class="text-balance text-muted-foreground">Fill in the form below to create an account</p>
   </div>
   <form class="grid gap-4" on:submit|preventDefault={register}>
     <div class="grid gap-2">
       <Label for="username">Username</Label>
       <Input id="username" autocomplete="off" required bind:value={payload.name} />
       {#if errors?.name}
-        <p class="text-destructive text-sm">{errors.name}</p>
+        <p class="text-sm text-destructive">{errors.name}</p>
       {/if}
     </div>
 
@@ -76,7 +76,7 @@
       </Label>
       <Input id="displayName" autocomplete="off" bind:value={payload.displayName} />
       {#if errors?.displayName}
-        <p class="text-destructive text-sm">{errors.displayName}</p>
+        <p class="text-sm text-destructive">{errors.displayName}</p>
       {/if}
     </div>
 
@@ -84,7 +84,7 @@
       <Label for="email">Email</Label>
       <Input id="email" type="email" autocomplete="off" required bind:value={payload.email} />
       {#if errors?.email}
-        <p class="text-destructive text-sm">{errors.email}</p>
+        <p class="text-sm text-destructive">{errors.email}</p>
       {/if}
     </div>
 
@@ -100,6 +100,8 @@
         <button
           type="button"
           class="absolute inset-y-0 right-0 px-2"
+          tabindex="-1"
+          aria-hidden="true"
           on:click={() => (showPassword = !showPassword)}
         >
           {#if showPassword}
@@ -110,7 +112,7 @@
         </button>
       </div>
       {#if errors?.password}
-        <p class="text-destructive text-sm">{errors.password}</p>
+        <p class="text-sm text-destructive">{errors.password}</p>
       {/if}
     </div>
 
@@ -118,15 +120,15 @@
       <Label for="confirmPassword">Confirm password</Label>
       <Input id="confirmPassword" type="password" required bind:value={payload.confirmPassword} />
       {#if errors?.confirmPassword}
-        <p class="text-destructive text-sm">{errors.confirmPassword}</p>
+        <p class="text-sm text-destructive">{errors.confirmPassword}</p>
       {/if}
     </div>
 
     {#if genericErrorMessage}
-      <p class="text-destructive text-sm">{genericErrorMessage}</p>
+      <p class="text-sm text-destructive">{genericErrorMessage}</p>
     {/if}
 
-    <Button variant="secondary" type="submit" class="w-full" disabled={loading}>
+    <Button type="submit" class="w-full" disabled={loading}>
       {#if loading}
         <Loader class="size-5 animate-spin" />
       {:else}

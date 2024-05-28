@@ -46,12 +46,12 @@
 <div class="mx-auto grid w-[350px] gap-6">
   <div class="grid gap-2 text-center">
     <h1 class="text-3xl font-bold">Login</h1>
-    <p class="text-muted-foreground text-balance">
+    <p class="text-balance text-muted-foreground">
       Enter your email below to login to your account
     </p>
   </div>
   {#if $page.state.registerSuccess}
-    <div class="bg-secondary rounded-md p-2 text-center text-sm">
+    <div class="rounded-md bg-secondary p-2 text-center text-sm">
       Account created successfully. You can now login.
     </div>
   {/if}
@@ -67,6 +67,8 @@
         <button
           type="button"
           class="absolute inset-y-0 right-0 px-2"
+          tabindex="-1"
+          aria-hidden="true"
           on:click={() => (showPassword = !showPassword)}
         >
           {#if showPassword}
@@ -78,9 +80,9 @@
       </div>
     </div>
     {#if errorMessage}
-      <p class="text-destructive text-sm">{errorMessage}</p>
+      <p class="text-sm text-destructive">{errorMessage}</p>
     {/if}
-    <Button variant="secondary" type="submit" class="w-full" disabled={loading}>
+    <Button type="submit" class="w-full" disabled={loading}>
       {#if loading}
         <Loader class="size-5 animate-spin" />
       {:else}

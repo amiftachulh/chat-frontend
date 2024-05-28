@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Chat from "$lib/icons/Chat.svelte";
+  import ChatApp from "$lib/icons/ChatApp.svelte";
 </script>
 
 <svelte:head>
@@ -7,7 +7,7 @@
 </svelte:head>
 
 <div class="grid place-content-center place-items-center gap-4">
-  <Chat class="size-28" />
+  <ChatApp />
   <div class="text-center">
     <h1 class="text-xl">Chat App</h1>
     <p class="text-muted-foreground">
